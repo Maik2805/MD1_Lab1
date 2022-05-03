@@ -5,8 +5,8 @@
  */
 package lab1.exercises;
 
-import lab1.exercises.models.Item;
-import lab1.exercises.models.StockStat;
+import lab1.exercises.exercise1.Item;
+import lab1.exercises.exercise1.StockStat;
 
 /**
  *
