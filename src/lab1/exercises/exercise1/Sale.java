@@ -1,4 +1,4 @@
-package lab1.exercises.exercise2;
+package lab1.exercises.exercise1;
 
 public class Sale {
     private double amount;

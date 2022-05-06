@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lab1.exercises.exercise1;
+package lab1.exercises.exercise2;
 
 /**
  *
@@ -20,6 +20,21 @@ public class StockStat {
     private float orderPoint;
     private float orderAmount;
     private int resupplyPeriod;
+
+    public StockStat() {
+    }
+    
+    
+
+    public StockStat(int resupplyPeriod, float currentAmount, float averageUsed, float maxUsedDaily, float minUsedDaily) {
+        this.maxUsedDaily = maxUsedDaily;
+        this.minUsedDaily = minUsedDaily;
+        this.averageUsed = averageUsed;
+        this.currentAmount = currentAmount;
+        this.resupplyPeriod = resupplyPeriod;
+    }
+    
+    
 
     public void calcAll() {
         calcMinimumAmount();

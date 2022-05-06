@@ -1,35 +1,39 @@
 package lab1.exercises;
 
-import lab1.exercises.exercise2.Company;
-import lab1.exercises.exercise2.Sale;
+import lab1.exercises.exercise2.Item;
+import lab1.exercises.exercise2.StockStat;
 
-import java.util.ArrayList;
-
+/**
+ *
+ * @author Maik
+ */
 public class Punto2 {
-    public static void main(String[] args) {
-        Company corporacion = new Company("Corporacion S.A");
-        loadData(corporacion);
-
-        ArrayList<Sale> forecast = corporacion.calculateForecast();
-
-        System.out.println("Year" + "\t Sales Amount");
-        for (Sale sale: forecast) {
-            System.out.println(sale.getYear() + " \t \t " + sale.getAmount());
-        }
+    
+    public static void main(String[] args) throws Exception {
+        // Your code here!
+        
+        demo();
     }
-
-    public static void loadData(Company company) {
-        Sale v1 = new Sale(220, 1);
-        Sale v2 = new Sale(245, 2);
-        Sale v3 = new Sale(250, 3);
-        Sale v4 = new Sale(258, 4);
-        Sale v5 = new Sale(273.5, 5);
-
-        company.addToSalesHistory(v1);
-        company.addToSalesHistory(v2);
-        company.addToSalesHistory(v3);
-        company.addToSalesHistory(v4);
-        company.addToSalesHistory(v5);
+    
+    private static void demo(){
+        Item product = new Item();
+        product.setName("Producto 1");
+        product.setPrice(50f);
+        product.setReference("ID1");
+        StockStat statistics = new StockStat();
+        statistics.setMinUsedDaily(62f);
+        statistics.setResupplyPeriod(6);
+        statistics.setMaxUsedDaily(135f);
+        statistics.setAverageUsed(1182f);
+        statistics.setCurrentAmount(260f);
+        statistics.setAverageUsed(87f);
+        statistics.calcAll();
+        product.setStockStat(statistics);
+        
+        System.out.println(statistics.toString()); 
+        System.out.println("Punto de pedido:" + statistics.getOrderPoint());
+        System.out.println("Cantidad de pedido:" + statistics.getOrderAmount());
     }
-
+    
+    
 }
