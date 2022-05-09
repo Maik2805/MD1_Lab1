@@ -48,6 +48,7 @@ public class Punto2 extends javax.swing.JFrame {
         txtOrderAmount = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         btnCalcular = new javax.swing.JButton();
+        lblError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,6 +144,12 @@ public class Punto2 extends javax.swing.JFrame {
             }
         });
 
+        lblError.setForeground(new java.awt.Color(255, 0, 0));
+        lblError.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblError.setAlignmentY(0.0F);
+        lblError.setMaximumSize(new java.awt.Dimension(51, 30));
+        lblError.setMinimumSize(new java.awt.Dimension(5, 2));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -158,7 +165,7 @@ public class Punto2 extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtOrderAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMaxAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,9 +178,14 @@ public class Punto2 extends javax.swing.JFrame {
                     .addComponent(txtOrderPoint, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(92, 92, 92))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(315, Short.MAX_VALUE)
-                .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(300, 300, 300))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(300, 300, 300))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(233, 233, 233))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(81, 81, 81)
@@ -217,14 +229,16 @@ public class Punto2 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtOrderAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(lblError, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(62, 62, 62)
                     .addComponent(jLabel2)
-                    .addContainerGap(447, Short.MAX_VALUE)))
+                    .addContainerGap(452, Short.MAX_VALUE)))
         );
 
         pack();
@@ -267,7 +281,7 @@ public class Punto2 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtOrderAmountActionPerformed
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        // TODO add your handling code here:
+        lblError.setText("");
         try{
             int resupplyPeriod = Integer.parseInt(txtResupplyPeriod.getText());
             float averageUsed = Float.parseFloat(txtAverageUsed.getText());
@@ -283,6 +297,7 @@ public class Punto2 extends javax.swing.JFrame {
             txtOrderAmount.setText(String.valueOf(stock.getOrderAmount()));
             
         }catch(Exception e){
+            lblError.setText("Ocurrió un error");
         }
     }//GEN-LAST:event_btnCalcularActionPerformed
 
@@ -334,6 +349,7 @@ public class Punto2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblError;
     private javax.swing.JTextField txtAverageUsed;
     private javax.swing.JTextField txtCurrentAmount;
     private javax.swing.JTextField txtMaxAmount;
