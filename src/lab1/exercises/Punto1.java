@@ -4,6 +4,7 @@ import lab1.exercises.exercise1.Company;
 import lab1.exercises.exercise1.Sale;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Punto1 {
     public static void main(String[] args) {
@@ -12,24 +13,29 @@ public class Punto1 {
 
         ArrayList<Sale> forecast = corporacion.calculateForecast();
 
-        System.out.println("Year" + "\t Sales Amount");
+        System.out.println("=RESULTS=============================================");
+        System.out.println("Year" + "|\t Sales Amount");
         for (Sale sale: forecast) {
             System.out.println(sale.getYear() + " \t \t " + sale.getAmount());
         }
     }
 
     public static void loadData(Company company) {
-        Sale v1 = new Sale(220, 1);
-        Sale v2 = new Sale(245, 2);
-        Sale v3 = new Sale(250, 3);
-        Sale v4 = new Sale(258, 4);
-        Sale v5 = new Sale(273.5, 5);
 
-        company.addToSalesHistory(v1);
-        company.addToSalesHistory(v2);
-        company.addToSalesHistory(v3);
-        company.addToSalesHistory(v4);
-        company.addToSalesHistory(v5);
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("== Company S.A ==");
+        System.out.println("= Forecast System =");
+        System.out.println("Write the sales' amount for the las 5 years... \nRecommendation use (,) don't use (.)");
+        System.out.println("------------------------------------");
+
+        for (int sale = 0; sale < 5; sale++) {
+            System.out.println("Year: " + (sale+1));
+            System.out.print("Write the sales' amount \n->");
+            double amount = input.nextFloat();
+
+            Sale newSale = new Sale(amount, (sale+1));
+            company.addToSalesHistory(newSale);
+        }
     }
-
 }
