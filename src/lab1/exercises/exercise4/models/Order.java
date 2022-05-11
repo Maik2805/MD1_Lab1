@@ -6,24 +6,29 @@
 package lab1.exercises.exercise4.models;
 
 /**
- *
+ * Represents an basic Order.
  * @author miccarurb
  */
 public class Order {
+
     String id;
-    float  processTime;
+    float processTime;
     int deliveryTime;
 
+    /**
+     * Constructs a new Order by no Arguments.
+     */
     public Order() {
     }
-    
+
+    /**
+     * Constructs a new Order by id, processTime and deliveryTime Arguments.
+     */
     public Order(String id, float processTime, int deliveryTime) {
         this.id = id;
         this.processTime = processTime;
         this.deliveryTime = deliveryTime;
     }
-    
-    
 
     public String getId() {
         return id;
@@ -48,7 +53,5 @@ public class Order {
     public void setDeliveryTime(int deliveryTime) {
         this.deliveryTime = deliveryTime;
     }
-    
-    
-    
+
 }

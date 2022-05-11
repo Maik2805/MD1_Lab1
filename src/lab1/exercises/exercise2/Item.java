@@ -6,8 +6,8 @@
 package lab1.exercises.exercise2;
 
 /**
- *
- * @author Maik
+ * Represents an basic Item.
+ * @author miccarurb
  */
 public class Item {
     private String name;

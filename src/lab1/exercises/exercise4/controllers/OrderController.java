@@ -15,32 +15,49 @@ import lab1.exercises.exercise4.programmingphases.Phase;
 import lab1.exercises.exercise4.programmingphases.phases.PepsPhase;
 
 /**
+ * Order Controller to manage Orders operations.
  *
  * @author miccarurb
  */
 public class OrderController {
-    public Balance generatePepsBalance(ArrayList<Order> orders) throws IOException{
+
+    /**
+     * Returns an Balance object from the given Orders.
+     *
+     * @param orders An ArrayList of orders to generate the Balance.
+     * @return The Balance calculated.
+     * @see OrderDetail
+     */
+    public Balance generatePepsBalance(ArrayList<Order> orders) throws IOException {
         Phase phase = new PepsPhase();
         ArrayList<OrderDetail> ordersDetails = phase.calculate(orders);
-        
+
         Balance result = new Balance();
         result.setOrders(ordersDetails);
         result.calcAll();
         return result;
     }
-    public static void showBalance(Balance balance){
+
+    /**
+     * Prints a Balance on output console.
+     *
+     * @param balance A Balance to show.
+     * @return void.
+     * @see Balance
+     */
+    public static void showBalance(Balance balance) {
         DecimalFormat df = new DecimalFormat("#.##");
-        System.out.println("--- BALANCE ---"); 
-        System.out.println("- ORDENES -"); 
-        System.out.println("Secuencia   | Tiempo de Proceso   | Tiempo de Flujo   " +
-                "| Fecha de entrega   | Retraso del trabajo");
+        System.out.println("--- BALANCE ---");
+        System.out.println("- ORDENES -");
+        System.out.println("Secuencia   | Tiempo de Proceso   | Tiempo de Flujo   "
+                + "| Fecha de entrega   | Retraso del trabajo");
         for (OrderDetail order : balance.getOrders()) {
-            System.out.println(order.getId() + "   | " + order.getProcessTime()+ "   | " +
-                    order.getFlowTime() + "   | " + order.getDeliveryTime() + "   | " + order.getJobDelay());
+            System.out.println(order.getId() + "   | " + order.getProcessTime() + "   | "
+                    + order.getFlowTime() + "   | " + order.getDeliveryTime() + "   | " + order.getJobDelay());
         }
-        System.out.println("Total   | " + balance.getTotalProcessTime()+ "   | " +
-                    balance.getTotalFlowTime()+ "   |       | " + balance.getTotalJobDelay());
-        System.out.println("-- RESUMEN --"); 
+        System.out.println("Total   | " + balance.getTotalProcessTime() + "   | "
+                + balance.getTotalFlowTime() + "   |       | " + balance.getTotalJobDelay());
+        System.out.println("-- RESUMEN --");
         System.out.println("Utilización: " + df.format(balance.getUtilization()) + "%");
         System.out.println("Tiempo medio de terminación: " + df.format(balance.getAverageTimeTermination()));
         System.out.println("Trabajos en el sistema: " + df.format(balance.getSystemJobs()));

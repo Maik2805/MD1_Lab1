@@ -12,13 +12,16 @@ import lab1.exercises.exercise4.models.Balance;
 import lab1.exercises.exercise4.models.OrderDetail;
 
 /**
- *
+ * Represents a Order Detail Model to show in a Jtable.
  * @author miccarurb
  */
 public class OrderDetailTableModel extends AbstractTableModel {
     private List<OrderDetail> orders;
     private String[] columns;
 
+    /**
+     * Constructs a new OrderDetailTableModel by no arguments.
+     */
     public OrderDetailTableModel() {
         super();
         orders = new ArrayList<>();
@@ -27,20 +30,20 @@ public class OrderDetailTableModel extends AbstractTableModel {
         };
     }
     
-    
-    
-//    public OrderDetailTableModel(Balance balance){
-//        super();
-//        orders = balance.getOrders();
-//        columns = new String[]{
-//            "Secuencia", "Tiempo de Proceso", "Tiempo de flujo", "Fecha de entrega", "Retraso del trabajo"
-//        };
-//    }
-    
+    /**
+     * Calculate the number of columns.
+     */
     public int getColumnCount() {
         return columns.length ;
     }
         
+    /**
+     * Gets the value of the specific cordinates.
+     * 
+     * @param row row position.
+     * @param col columns position.
+     * @return Value.
+     */
     public Object getValueAt(int row, int col) {
         OrderDetail order = orders.get(row);
         switch(col) {

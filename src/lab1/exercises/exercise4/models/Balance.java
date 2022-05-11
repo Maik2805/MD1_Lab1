@@ -8,12 +8,14 @@ package lab1.exercises.exercise4.models;
 import java.util.ArrayList;
 
 /**
+ * Represents an Balance that includes a OrderDetail list to calculate it.
  *
  * @author miccarurb
  */
 public class Balance {
+
     private ArrayList<OrderDetail> orders;
-    
+
     private int utilization;
     private float averageTimeTermination;
     private float systemJobs;
@@ -22,19 +24,29 @@ public class Balance {
     private int totalFlowTime;
     private float totalJobDelay;
 
+    /**
+     * Constructs a new Balance by no Arguments.
+     */
     public Balance() {
         orders = new ArrayList<OrderDetail>();
     }
-    
-    
-    
-    
-    public void calcAll(){
+
+    /**
+     * Calculate every attribute on the Balance.
+     *
+     * @return void.
+     */
+    public void calcAll() {
         calcTotals();
         calcSummary();
     }
-    
-    private void calcTotals(){
+
+    /**
+     * Calculate totals attributes on the Balance by the orders.
+     *
+     * @return void.
+     */
+    private void calcTotals() {
         totalProcessTime = 0;
         totalFlowTime = 0;
         totalJobDelay = 0;
@@ -44,19 +56,35 @@ public class Balance {
             totalJobDelay += order.getJobDelay();
         }
     }
-    
-    private void calcSummary(){
-        utilization = Math.round((totalProcessTime/totalFlowTime)*100);
+
+    /**
+     * Calculate summary attributes on the Balance by the totals attributes.
+     *
+     * @return void.
+     */
+    private void calcSummary() {
+        utilization = Math.round((totalProcessTime / totalFlowTime) * 100);
         averageTimeTermination = (float) totalFlowTime / orders.size();
         systemJobs = totalFlowTime / totalProcessTime;
         averageDelay = totalJobDelay / orders.size();
     }
-    
-    public void addOrder(OrderDetail order){
+
+    /**
+     * Add an order to the orders ArrayList.
+     *
+     * @return void.
+     */
+    public void addOrder(OrderDetail order) {
         orders.add(order);
     }
-    
-    public void removeOrder(int position){
+
+    /**
+     * Remove an order to the orders ArrayList by the index.
+     *
+     * @param position An int that represents the Order index.
+     * @return void.
+     */
+    public void removeOrder(int position) {
         orders.remove(position);
     }
 
@@ -111,6 +139,5 @@ public class Balance {
     public float getTotalJobDelay() {
         return totalJobDelay;
     }
-    
-    
+
 }

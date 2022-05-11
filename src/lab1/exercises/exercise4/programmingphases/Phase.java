@@ -11,9 +11,17 @@ import lab1.exercises.exercise4.models.Order;
 import lab1.exercises.exercise4.models.OrderDetail;
 
 /**
+ * An structure that define the behavior needed on a Phase.
  *
  * @author miccarurb
  */
 public interface Phase {
+
+    /**
+     * Calculate the OrderDetail list from the given Orders
+     *
+     * @param orders Basic Orders to generate Detail.
+     * @return The list of OrderDetails calculated.
+     */
     public ArrayList<OrderDetail> calculate(ArrayList<Order> orders) throws IOException;
 }

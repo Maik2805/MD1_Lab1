@@ -8,14 +8,17 @@ import lab1.exercises.exercise2.StockStat;
  * @author Maik
  */
 public class Punto2 {
-    
+
     public static void main(String[] args) throws Exception {
         // Your code here!
-        
+
         demo();
     }
-    
-    private static void demo(){
+
+    /**
+     * Start a Demo program.
+     */
+    private static void demo() {
         Item product = new Item();
         product.setName("Producto 1");
         product.setPrice(50f);
@@ -29,11 +32,10 @@ public class Punto2 {
         statistics.setAverageUsed(87f);
         statistics.calcAll();
         product.setStockStat(statistics);
-        
-        System.out.println(statistics.toString()); 
+
+        System.out.println(statistics.toString());
         System.out.println("Punto de pedido:" + statistics.getOrderPoint());
         System.out.println("Cantidad de pedido:" + statistics.getOrderAmount());
     }
-    
-    
+
 }

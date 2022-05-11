@@ -6,6 +6,7 @@
 package lab1.exercises.exercise2;
 
 /**
+ * Represents an Stock Status.
  *
  * @author Maik
  */
@@ -21,11 +22,15 @@ public class StockStat {
     private float orderAmount;
     private int resupplyPeriod;
 
+    /**
+     * Constructs a new StockStat with no Arguments.
+     */
     public StockStat() {
     }
-    
-    
 
+    /**
+     * Constructs a new OrderDetail by the basic attributes as arguments.
+     */
     public StockStat(int resupplyPeriod, float currentAmount, float averageUsed, float maxUsedDaily, float minUsedDaily) {
         this.maxUsedDaily = maxUsedDaily;
         this.minUsedDaily = minUsedDaily;
@@ -33,9 +38,12 @@ public class StockStat {
         this.currentAmount = currentAmount;
         this.resupplyPeriod = resupplyPeriod;
     }
-    
-    
 
+    /**
+     * Calculate every attribute on the StockStat.
+     *
+     * @return void.
+     */
     public void calcAll() {
         calcMinimumAmount();
         calcMaximumAmount();
@@ -43,21 +51,41 @@ public class StockStat {
         calcOrderAmount();
     }
 
+    /**
+     * Calculate minAmount attribute and returns it.
+     *
+     * @return minAmount.
+     */
     public float calcMinimumAmount() {
         minAmount = minUsedDaily * resupplyPeriod;
         return minAmount;
     }
 
+    /**
+     * Calculate maxAmount attribute and returns it.
+     *
+     * @return maxAmount.
+     */
     public float calcMaximumAmount() {
         maxAmount = (maxUsedDaily * resupplyPeriod) + minAmount;
         return maxAmount;
     }
 
+    /**
+     * Calculate orderPoint attribute and returns it.
+     *
+     * @return orderPoint.
+     */
     public float calcOrderPoint() {
         orderPoint = (averageUsed * resupplyPeriod) + minAmount;
         return orderPoint;
     }
 
+    /**
+     * Calculate orderAmount attribute and returns it.
+     *
+     * @return orderAmount.
+     */
     public float calcOrderAmount() {
         orderAmount = maxAmount - currentAmount;
         return orderAmount;

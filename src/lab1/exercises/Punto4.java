@@ -21,20 +21,24 @@ import lab1.exercises.exercise4.models.OrderDetail;
  * @author miccarurb
  */
 public class Punto4 {
+
     public static void main(String[] args) throws Exception {
         // Your code here!
-        
+
         demo();
     }
-    
-    public static void demo(){
-        Order ordenA = new Order("A",2f,7);
-        Order ordenB = new Order("B",8f,5);
-        Order ordenC = new Order("C",5f,6);
-        Order ordenD = new Order("D",7f,11);
-        
+
+    /**
+     * Start a Demo program.
+     */
+    public static void demo() {
+        Order ordenA = new Order("A", 2f, 7);
+        Order ordenB = new Order("B", 8f, 5);
+        Order ordenC = new Order("C", 5f, 6);
+        Order ordenD = new Order("D", 7f, 11);
+
         OrderController controller = new OrderController();
-        ArrayList<Order> orders = new ArrayList<>(Arrays.asList(ordenA,ordenB, ordenC, ordenD));
+        ArrayList<Order> orders = new ArrayList<>(Arrays.asList(ordenA, ordenB, ordenC, ordenD));
         try {
             Balance balance = controller.generatePepsBalance(orders);
             controller.showBalance(balance);
@@ -42,6 +46,5 @@ public class Punto4 {
             Logger.getLogger(Punto4.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
 }

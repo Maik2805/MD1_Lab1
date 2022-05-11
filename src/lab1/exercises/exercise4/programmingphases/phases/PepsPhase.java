@@ -15,8 +15,15 @@ import lab1.exercises.exercise4.programmingphases.Phase;
  *
  * @author miccarurb
  */
-public class PepsPhase implements Phase{
+public class PepsPhase implements Phase {
 
+    /**
+     * Calculate the OrderDetail list from the given Orders
+     *
+     * @param orders Basic Orders to generate Detail.
+     * @return The list of OrderDetails calculated.
+     * @see Order
+     */
     @Override
     public ArrayList<OrderDetail> calculate(ArrayList<Order> orders) throws IOException {
         ArrayList<OrderDetail> result = new ArrayList<>();
@@ -28,12 +35,20 @@ public class PepsPhase implements Phase{
             orderDetail.setJobDelay(calculateDelay(flowTime, order.getDeliveryTime()));
             result.add(orderDetail);
         }
-        
+
         return result;
     }
-    
-    private float calculateDelay(float current,float desired){
-        return current - desired < 0 ?  0 : current - desired;
+
+    /**
+     * Calculate the difference between current and desired arguments. If the
+     * delay is less than 0 it returns 0.
+     *
+     * @param current initial value.
+     * @param desired final value.
+     * @return The difference between desired and current.
+     */
+    private float calculateDelay(float current, float desired) {
+        return current - desired < 0 ? 0 : current - desired;
     }
-    
+
 }

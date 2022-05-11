@@ -6,7 +6,7 @@
 package lab1.exercises.exercise4.models;
 
 /**
- *
+ * Represents an Order with detail data.
  * @author miccarurb
  */
 public class OrderDetail extends Order {
@@ -14,9 +14,15 @@ public class OrderDetail extends Order {
     private float flowTime;
     private float jobDelay;
 
+    /**
+     * Constructs a new OrderDetail with no Arguments.
+     */
     public OrderDetail() {
     }
 
+    /**
+     * Constructs a new OrderDetail by an Order object.
+     */
     public OrderDetail(Order orderBase) {
         id = orderBase.id;
         processTime = orderBase.processTime;
